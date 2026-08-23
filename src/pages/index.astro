@@ -13,11 +13,12 @@ import { Image } from 'astro:assets';
 	}
 
 	.main-photo {
-		width: 80%;
+		width: 70%;
 		height: auto;
 		margin-left: auto;
 		margin-right: auto;
 		display: block;
+		margin-top: 100px
 	}
 
 	.overlay {
@@ -27,22 +28,65 @@ import { Image } from 'astro:assets';
 		left: 0;
 		text-align: center;
 		width: 100%;
+		padding: 0px;
+		margin: opx;
 	}
 
 	.logo {
-		color:rgb(106, 19, 188);
-		font-size: 100pt;
+		color:rgb(96, 15, 171);
+		font-size: 120pt;
 		font-family: Impact;
+		text-shadow: rgba(1, 1, 1, 0.5) 10px 10px;
+		margin: 0px;
+	}
+
+	.navbar {
+		position: relative;
+
+		width: 70%;
+		height: 130px;
+
+		margin: 0 auto;
+
+		/* Mittelpunkt des Kreises */
+		--radius: 300px;
+	}
+
+	.nav-item {
+		position: absolute;
+
+		left: 50%;
+		top: 50%;
+
+		color: white;
+		text-decoration: none;
+		font-size: 1.2rem;
 		font-weight: bold;
+
+		white-space: nowrap;
+
+		transform:
+			rotate(var(--angle))
+			translateX(var(--radius))
+			rotate(calc(-1 * var(--angle)));
+
+		transform-origin: 0 0;
 	}
 
 </style>
 
 <Layout>
-	<div class="background">
-		<Image class="main-photo" src={mainFoto} alt="Main Band Photo" />
-	</div>
 	<div class="overlay">
 		<h1 class="logo">SKETCH</h1>
+		<nav class="navbar">
+			<a class="nav-item" style="--angle: -35deg" href="/index">Home</a>
+			<a class="nav-item" style="--angle: -17.5deg" href="/gigs">Gigs</a>
+			<a class="nav-item" style="--angle: 0deg" href="/music">Music</a>
+			<a class="nav-item" style="--angle: 17.5deg" href="/booking">Book Us</a>
+			<a class="nav-item" style="--angle: 35deg" href="/newsletter">Newsletter</a>
+		</nav>
+	</div>
+	<div class="background">
+		<Image class="main-photo" src={mainFoto} alt="Main Band Photo" />
 	</div>
 </Layout>
