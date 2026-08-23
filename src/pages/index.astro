@@ -1,0 +1,48 @@
+---
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+import mainFoto from "../assets/main_foto.jpg"
+import { Image } from 'astro:assets';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+<style>
+	.background {
+		width: 100%;
+	}
+
+	.main-photo {
+		width: 80%;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+
+	.overlay {
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	.logo {
+		color:rgb(106, 19, 188);
+		font-size: 100pt;
+		font-family: Impact;
+		font-weight: bold;
+	}
+
+</style>
+
+<Layout>
+	<div class="background">
+		<Image class="main-photo" src={mainFoto} alt="Main Band Photo" />
+	</div>
+	<div class="overlay">
+		<h1 class="logo">SKETCH</h1>
+	</div>
+</Layout>
