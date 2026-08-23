@@ -13,12 +13,13 @@ import { Image } from 'astro:assets';
 	}
 
 	.main-photo {
-		width: 70%;
+		width: 700px;
 		height: auto;
 		margin-left: auto;
 		margin-right: auto;
 		display: block;
-		margin-top: 100px
+		margin-top: 100px;
+		border-radius: 50%;
 	}
 
 	.overlay {
@@ -44,12 +45,12 @@ import { Image } from 'astro:assets';
 		position: relative;
 
 		width: 70%;
-		height: 130px;
+		height: 490px;
 
 		margin: 0 auto;
 
 		/* Mittelpunkt des Kreises */
-		--radius: 300px;
+		--radius: 380px;
 	}
 
 	.nav-item {
@@ -71,6 +72,13 @@ import { Image } from 'astro:assets';
 			rotate(calc(-1 * var(--angle)));
 
 		transform-origin: 0 0;
+		text-shadow: rgba(75, 75, 75, 0.5) 4px 4px;
+
+		transition: font-size 0.2s ease;
+	}
+
+	.nav-item:hover {
+		font-size: 1.4rem;
 	}
 
 </style>
@@ -79,7 +87,7 @@ import { Image } from 'astro:assets';
 	<div class="overlay">
 		<h1 class="logo">SKETCH</h1>
 		<nav class="navbar">
-			<a class="nav-item" style="--angle: -35deg" href="/index">Home</a>
+			<a class="nav-item" style="--angle: -35deg" href="/">Home</a>
 			<a class="nav-item" style="--angle: -17.5deg" href="/gigs">Gigs</a>
 			<a class="nav-item" style="--angle: 0deg" href="/music">Music</a>
 			<a class="nav-item" style="--angle: 17.5deg" href="/booking">Book Us</a>

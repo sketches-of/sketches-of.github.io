@@ -5,3 +5,7 @@ body {
     height: 100%;
     background-color: black;
 }
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
