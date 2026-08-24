@@ -1,0 +1,81 @@
+---
+import Header from '../../components/Header.astro'
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const gigs = await getCollection('gigs');
+
+gigs.sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf()
+);
+
+---
+<style>
+    .content {
+        margin-top: 50px;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h1 {
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 26px;
+    }
+
+    .gig-box {
+        border: 2px solid rgb(96, 15, 171);
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .main-line {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end
+    }
+
+    .date {
+        color: rgb(255, 208, 0);
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .location {
+        font-weight: bold;
+    }
+
+</style>
+
+<Layout>
+	<Header></Header>
+    <article class="content">
+        <h1>Upcoming Gigs</h1>
+        <div class="gigs-box">
+        {gigs.map((gig) => (
+          <div class="gig-box">
+            <div class="main-line">
+                <h2 style="font-weight: bold">{gig.data.title}</h2>
+                <time class="date" datetime={gig.data.date.toISOString()}>
+                    {gig.data.date.toLocaleDateString()}
+                </time>
+            </div>
+            <p>
+                <span class="location">{gig.data.location}</span>
+                &nbsp;-&nbsp;
+                <span class="description">{gig.data.description}</span>
+            </p>
+            </div>
+        ))}
+        </div>
+    </article>
+</Layout>

@@ -1,5 +1,5 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Logo from '../components/Logo.astro'
 import Layout from '../layouts/Layout.astro';
 import mainFoto from "../assets/main_foto.jpg"
 import { Image } from 'astro:assets';
@@ -33,14 +33,6 @@ import { Image } from 'astro:assets';
 		margin: opx;
 	}
 
-	.logo {
-		color:rgb(96, 15, 171);
-		font-size: 120pt;
-		font-family: Impact;
-		text-shadow: rgba(1, 1, 1, 0.5) 10px 10px;
-		margin: 0px;
-	}
-
 	.navbar {
 		position: relative;
 
@@ -59,22 +51,12 @@ import { Image } from 'astro:assets';
 		left: 50%;
 		top: 50%;
 
-		color: white;
-		text-decoration: none;
-		font-size: 1.2rem;
-		font-weight: bold;
-
-		white-space: nowrap;
-
 		transform:
 			rotate(var(--angle))
 			translateX(var(--radius))
 			rotate(calc(-1 * var(--angle)));
 
 		transform-origin: 0 0;
-		text-shadow: rgba(75, 75, 75, 0.5) 4px 4px;
-
-		transition: font-size 0.2s ease;
 	}
 
 	.nav-item:hover {
@@ -85,7 +67,7 @@ import { Image } from 'astro:assets';
 
 <Layout>
 	<div class="overlay">
-		<h1 class="logo">SKETCH</h1>
+		<Logo/>
 		<nav class="navbar">
 			<a class="nav-item" style="--angle: -35deg" href="/">Home</a>
 			<a class="nav-item" style="--angle: -17.5deg" href="/gigs">Gigs</a>

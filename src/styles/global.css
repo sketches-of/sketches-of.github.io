@@ -8,4 +8,23 @@ body {
 
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    white-space: nowrap;
+
+
+    text-shadow: rgba(75, 75, 75, 0.5) 4px 4px;
+
+    transition: font-size 0.2s ease;
+}
+
+.nav-item:hover {
+    font-size: 1.4rem;
 }
