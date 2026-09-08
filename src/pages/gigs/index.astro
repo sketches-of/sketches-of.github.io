@@ -3,21 +3,24 @@ import Header from '../../components/Header.astro'
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
+const tomorrow = new Date();
+tomorrow.setTime((tomorrow.getTime()%8640000 + 1) * 8640000);
 const gigs = await getCollection('gigs');
 
-gigs.sort(
+
+const upcomingGigs = gigs.filter(g => g.data.date >= tomorrow);
+const pastGigs = gigs.filter(g => g.data.date < tomorrow);
+
+upcomingGigs.sort(
   (a, b) => a.data.date.valueOf() - b.data.date.valueOf()
+);
+
+pastGigs.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 
 ---
 <style>
-    .content {
-        margin-top: 50px;
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     h1 {
         color: white;
         font-size: 40px;
@@ -31,27 +34,12 @@ gigs.sort(
     }
 
     .gig-box {
+        display: block;
         border: 2px solid rgb(96, 15, 171);
         border-radius: 10px;
         margin: 10px;
         padding: 10px;
-    }
-
-    .main-line {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end
-    }
-
-    .date {
-        color: rgb(255, 208, 0);
-        font-weight: bold;
-        font-size: 18px;
-    }
-
-    .location {
-        font-weight: bold;
+        text-decoration: none;
     }
 
 </style>
@@ -62,7 +50,7 @@ gigs.sort(
         <h1>Upcoming Gigs</h1>
         <div class="gigs-box">
         {gigs.map((gig) => (
-          <div class="gig-box">
+          <a class="gig-box" href={`/gigs/${gig.id}/`}>
             <div class="main-line">
                 <h2 style="font-weight: bold">{gig.data.title}</h2>
                 <time class="date" datetime={gig.data.date.toISOString()}>
@@ -74,7 +62,27 @@ gigs.sort(
                 &nbsp;-&nbsp;
                 <span class="description">{gig.data.description}</span>
             </p>
+            </a>
+        ))}
+        </div>
+    </article>
+    <article class="content">
+        <h1>Past Gigs</h1>
+        <div class="gigs-box">
+        {pastGigs.map((gig) => (
+          <a class="gig-box" href={`/gigs/${gig.id}/`}>
+            <div class="main-line">
+                <h2 style="font-weight: bold">{gig.data.title}</h2>
+                <time class="date" datetime={gig.data.date.toISOString()}>
+                    {gig.data.date.toLocaleDateString()}
+                </time>
             </div>
+            <p>
+                <span class="location">{gig.data.location}</span>
+                &nbsp;-&nbsp;
+                <span class="description">{gig.data.description}</span>
+            </p>
+            </a>
         ))}
         </div>
     </article>

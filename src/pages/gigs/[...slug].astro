@@ -1,0 +1,46 @@
+---
+import Header from '../../components/Header.astro'
+import BaseLayout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('gigs');
+
+  return posts.map((gig) => ({
+    params: {
+      slug: gig.id,
+    },
+    props: {
+      gig,
+    },
+  }));
+}
+
+const { gig } = Astro.props;
+const { Content } = await render(gig);
+
+const pageTitle = gig.data.title;
+---
+<BaseLayout>
+    <Header></Header>
+    <article class="content">
+        <header>
+            <h1>{gig.data.title}</h1>
+            <div class="main-line">
+                <div class="location">
+                    {gig.data.location}
+                </div>
+                <div>
+                    <time class="date" datetime={gig.data.date.toISOString()}>
+                        {gig.data.date.toLocaleDateString()}
+                    </time>
+                </div>
+            </div>
+        </header>
+        <Content />
+        <footer>
+            {gig.data.link ? (<a class="link-button" href={gig.data.link}>Mehr informationen ...</a>) : (<span></span>)}
+            {gig.data.ticketLink ? (<a class="link-button" href={gig.data.ticketLink}>Tickets</a>) : (<span></span>)}
+        </footer>
+    </article>
+</BaseLayout>

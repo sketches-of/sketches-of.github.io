@@ -28,3 +28,36 @@ body {
 .nav-item:hover {
     font-size: 1.4rem;
 }
+
+.content {
+    margin-top: 50px;
+    width: 70%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end
+}
+
+.date {
+    color: rgb(255, 208, 0);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.location {
+    font-weight: bold;
+}
+
+.link-button {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgb(96, 15, 171);
+}
