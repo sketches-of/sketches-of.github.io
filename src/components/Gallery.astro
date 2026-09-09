@@ -1,0 +1,75 @@
+---
+import "photoswipe/style.css";
+
+import aks1 from '../assets/photos/aks1.jpg'
+import aks2 from '../assets/photos/aks2.jpg'
+import aks3 from '../assets/photos/aks3.jpg'
+import aks4 from '../assets/photos/aks4.jpg'
+import aks5 from '../assets/photos/aks5.jpg'
+import foto1 from '../assets/photos/foto1.jpg'
+import foto2 from '../assets/photos/foto2.jpg'
+import foto3 from '../assets/photos/foto3.jpg'
+import jku1 from '../assets/photos/jku1.jpg'
+import jku2 from '../assets/photos/jku2.jpg'
+import jku3 from '../assets/photos/jku3.jpg'
+import jku4 from '../assets/photos/jku4.jpg'
+import jku5 from '../assets/photos/jku5.jpg'
+import jku6 from '../assets/photos/jku6.jpg'
+
+
+
+const images = [
+    foto1, aks2, jku1,
+    aks1, jku2, jku3,
+    aks3, foto2, jku4,
+    foto3, jku5, aks4,
+    jku6, aks5
+];
+---
+
+<div class="gallery" id="gallery">
+  {images.map((image) => (
+    <a
+      href={image.src}
+      target="_blank"
+      data-pswp-width={image.width}
+      data-pswp-height={image.height}
+    >
+      <img
+        src={image.src}
+        alt={image.alt}
+      />
+    </a>
+  ))}
+</div>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+  });
+
+  lightbox.init();
+</script>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery a {
+    cursor: pointer;
+  }
+</style>
