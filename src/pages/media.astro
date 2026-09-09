@@ -1,0 +1,25 @@
+---
+import Header from '../components/Header.astro'
+import YouTubeSlider from '../components/YouTubeSlider.astro';
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout>
+	<Header></Header>
+    <article class="content">
+        <h1>Videos</h1>
+        <YouTubeSlider urls={[
+            "https://www.youtube.com/embed/lG7Rv5wgHno",
+            "https://www.youtube.com/embed/CcVrKg_1dbc",
+            "https://www.youtube.com/embed/XDzYgQVWBVs"
+        ]}>
+        </YouTubeSlider>
+    </article>
+    <article class="content">
+        <h1>Past Gigs</h1>
+        <div class="gigs-box">
+
+        </div>
+    </article>
+</Layout>

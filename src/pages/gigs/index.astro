@@ -3,8 +3,7 @@ import Header from '../../components/Header.astro'
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const tomorrow = new Date();
-tomorrow.setTime((tomorrow.getTime()%8640000 + 1) * 8640000);
+const tomorrow = new Date(new Date().setHours(24, 0, 0, 0));
 const gigs = await getCollection('gigs');
 
 
@@ -21,18 +20,6 @@ pastGigs.sort(
 
 ---
 <style>
-    h1 {
-        color: white;
-        font-size: 40px;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    h2 {
-        margin: 0;
-        font-size: 26px;
-    }
-
     .gig-box {
         display: block;
         border: 2px solid rgb(96, 15, 171);
@@ -41,7 +28,6 @@ pastGigs.sort(
         padding: 10px;
         text-decoration: none;
     }
-
 </style>
 
 <Layout>
@@ -49,7 +35,7 @@ pastGigs.sort(
     <article class="content">
         <h1>Upcoming Gigs</h1>
         <div class="gigs-box">
-        {gigs.map((gig) => (
+        {upcomingGigs.map((gig) => (
           <a class="gig-box" href={`/gigs/${gig.id}/`}>
             <div class="main-line">
                 <h2 style="font-weight: bold">{gig.data.title}</h2>

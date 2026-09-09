@@ -11,6 +11,18 @@ body {
     color: white
 }
 
+h1 {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
 .nav-item {
     color: white;
     text-decoration: none;
