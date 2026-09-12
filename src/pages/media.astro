@@ -3,8 +3,31 @@ import Gallery from '../components/Gallery.astro';
 import Header from '../components/Header.astro'
 import YouTubeSlider from '../components/YouTubeSlider.astro';
 import Layout from '../layouts/Layout.astro';
+import { Instagram, Youtube, Spotify } from 'simple-icons-astro';
+import { Mail } from '@lucide/astro';
 
 ---
+
+<style>
+
+.socials {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.socials svg {
+    width: 64px;
+    height: 64px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+</style>
 
 <Layout>
 	<Header></Header>
@@ -16,6 +39,26 @@ import Layout from '../layouts/Layout.astro';
             "https://www.youtube.com/embed/XDzYgQVWBVs"
         ]}>
         </YouTubeSlider>
+    </article>
+    <article class="content">
+        <h1>Socials</h1>
+        <div class="socials">
+            <a href="https://www.instagram.com/sketchesof.music/" target="_blank" rel="noopener noreferrer" >
+                <Instagram />
+            </a>
+
+            <a href="https://www.youtube.com/@JonathanDotExe" target="_blank" rel="noopener noreferrer" > 
+                <Youtube />
+            </a>
+
+            <a href="https://open.spotify.com/user/3t203w7xickm2ezuqt1o56b3q?si=f0cefb9e56ea4fca" target="_blank" rel="noopener noreferrer">
+                <Spotify />
+            </a>
+
+            <a href="mailto:sketchesofsina.music@gmail.com" target="_blank" rel="noopener noreferrer">
+                <Mail />
+            </a>
+        </div>
     </article>
     <article class="content">
         <h1>Gallery</h1>
