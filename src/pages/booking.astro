@@ -1,0 +1,64 @@
+---
+import Header from '../components/Header.astro'
+import Layout from '../layouts/Layout.astro';
+---
+<style>
+
+.content {
+    width: 70%;
+    max-width: 500px;
+}
+
+.formrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 70%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    min-height: 30px;
+    color: black;
+    font-size: 12px;
+}
+
+textarea {
+    width: 100%;
+    display: block;
+    font-size: 12px;
+}
+
+</style>
+
+<Layout>
+	<Header></Header>
+    <article class="content">
+        <h1>Book Us</h1>
+        <form name="contact" method="POST" data-netlify="true">
+            <div class="formrow">
+                <label for="name">Name</label>
+                <input name="name" type="text" placeholder="Max Mustermann" required />
+            </div>
+            <div class="formrow">
+                <label for="email">E-Mail</label>
+                <input name="email" type="email" placeholder="maxmustermann@mail.at" required />
+            </div>
+            <div class="formrow">
+                <textarea name="message" placeholder="Nachricht..." rows="15" required></textarea>
+            </div>
+
+             <div class="formrow">
+                <button class="link-button" type="submit">Send</button>
+            </div>
+        </form>
+    </article>
+</Layout>
