@@ -1,6 +1,6 @@
 ---
-import Header from '../components/Header.astro'
-import Layout from '../layouts/Layout.astro';
+import Header from '../../components/Header.astro'
+import Layout from '../../layouts/Layout.astro';
 ---
 <style>
 
@@ -35,6 +35,7 @@ textarea {
     width: 100%;
     display: block;
     font-size: 12px;
+    color: black;
 }
 
 </style>
@@ -43,7 +44,7 @@ textarea {
 	<Header></Header>
     <article class="content">
         <h1>Book Us</h1>
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="booking" action="/booking/success" method="POST" data-netlify="true">
             <div class="formrow">
                 <label for="name">Name</label>
                 <input name="name" type="text" placeholder="Max Mustermann" required />
