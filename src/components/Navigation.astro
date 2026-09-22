@@ -7,14 +7,22 @@ import '../styles/global.css'
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
+        gap: clamp(10px, 7vw, 80px);;
     }
 
     .nav-item {
         display: block;
-        padding: 5px 40px;
+        padding: 5px 5px;
         text-decoration: none;
-        color: white
     }
+
+    @media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
 </style>
 
 <nav class="navbar">
