@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css'
+import logo from '../assets/sketches_logo.png'
+import { Image } from 'astro:assets';
 ---
 <style>
     .logo-box {
@@ -8,15 +10,12 @@ import '../styles/global.css'
     }
 
     .logo {
-		color:rgb(96, 15, 171);
-		font-size: 120pt;
-		font-family: Impact;
-		text-shadow: rgba(1, 1, 1, 0.5) 10px 10px;
-		margin: 0px;
-        transform: scaleX(0.75);
-	}
+        width: min(90%, 500px);
+        height: auto;
+        margin: 0 auto;
+    }
 </style>
 
 <div class="logo-box">
-    <h1 class="logo">SKETCHES</h1>
+    <Image class="logo" src={logo} alt="Sketches" />
 </div>
