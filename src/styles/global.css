@@ -50,6 +50,32 @@ h2 {
     margin-right: auto;
 }
 
+@media (max-width: 800px) {
+    .content {
+        width: 85%;
+    }
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .content {
+        width: 95%;
+    }
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}
+
 .main-line {
     display: flex;
     flex-direction: row;

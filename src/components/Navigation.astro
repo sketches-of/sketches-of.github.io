@@ -8,19 +8,28 @@ import '../styles/global.css'
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
-        gap: clamp(10px, 7vw, 80px);;
+        gap: clamp(5px, 7vw, 80px);
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .nav-item {
         display: block;
-        padding: 5px 5px;
         text-decoration: none;
     }
 
-    @media (max-width: 600px) {
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
+    @media (max-width: 456px) {
+        .navbar {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+
+    @media (max-width: 560px) {
+        .nav-item {
+            font-size: 16px;
+        }
     }
 }
 </style>
