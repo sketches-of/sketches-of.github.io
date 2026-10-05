@@ -43,7 +43,7 @@ textarea {
 	<Header></Header>
     <article class="content">
         <h1>Book Us</h1>
-        <form name="booking" action="/booking/success" method="POST" data-netlify="true">
+        <form name="booking" action="http://localhost:8080/api/contact" method="POST" data-netlify="true">
             <div class="formrow">
                 <label for="name">Name</label>
                 <input name="name" type="text" placeholder="Max Mustermann" required />
@@ -51,6 +51,10 @@ textarea {
             <div class="formrow">
                 <label for="email">E-Mail</label>
                 <input name="email" type="email" placeholder="maxmustermann@mail.at" required />
+            </div>
+            <div class="formrow">
+                <label for="subject">Betreff</label>
+                <input name="subject" type="text" placeholder="Anfrage" required />
             </div>
             <div class="formrow">
                 <textarea name="message" placeholder="Nachricht..." rows="15" required></textarea>
