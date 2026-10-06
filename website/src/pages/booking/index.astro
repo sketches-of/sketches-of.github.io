@@ -37,6 +37,10 @@ textarea {
     color: black;
 }
 
+.website {
+    display: none;
+}
+
 </style>
 
 <Layout>
@@ -46,23 +50,29 @@ textarea {
         <form name="booking" action="http://localhost:8080/api/contact" method="POST" data-netlify="true">
             <div class="formrow">
                 <label for="name">Name</label>
-                <input name="name" type="text" placeholder="Max Mustermann" required />
+                <input name="name" type="text" placeholder="Max Mustermann" maxlength="100" required />
             </div>
             <div class="formrow">
                 <label for="email">E-Mail</label>
-                <input name="email" type="email" placeholder="maxmustermann@mail.at" required />
+                <input name="email" type="email" placeholder="maxmustermann@mail.at" maxlength="254" required />
             </div>
             <div class="formrow">
                 <label for="subject">Betreff</label>
-                <input name="subject" type="text" placeholder="Anfrage" required />
+                <input name="subject" type="text" placeholder="Anfrage" maxlength="200" required />
             </div>
             <div class="formrow">
-                <textarea name="message" placeholder="Nachricht..." rows="15" required></textarea>
+                <textarea name="message" placeholder="Nachricht..." rows="15" maxlength="5000" required></textarea>
             </div>
 
              <div class="formrow">
                 <button class="link-button" type="submit">Send</button>
             </div>
+            <input class="website"
+                type="text"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+            >
         </form>
     </article>
 </Layout>
